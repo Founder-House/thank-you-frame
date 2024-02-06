@@ -8,7 +8,7 @@ const postUrl = `${process.env.NEXT_PUBLIC_HOST}/api/code`;
 
 export async function POST(req: NextRequest) {
   const {
-    untrustedData: {inputText},
+    untrustedData: {inputText, fid},
     trustedData: {messageBytes},
   } = await req.json();
   const frameMessage = Message.decode(Buffer.from(messageBytes, "hex"));
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const message = inputText ?? "";
     const imageUrl = `${
       process.env.NEXT_PUBLIC_HOST
-    }/api/images/echo?date=${Date.now()}&message=${message}`;
+    }/api/images/thanks?date=${Date.now()}&message=${message}&sender=${fid}`;
     return new NextResponse(
       `<!DOCTYPE html>
       <html>

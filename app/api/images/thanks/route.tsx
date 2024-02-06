@@ -1,7 +1,23 @@
-import {NextResponse} from "next/server";
+import {NextRequest} from "next/server";
 import {ImageResponse} from "next/og";
+import dbConnect from "../../../lib/dbConnect";
+import Message from "../../../models/Message";
+import spliceNameAndText from "@/app/lib/spliceNameAndText";
 
-export async function GET() {
+export const dynamic = "force-dynamic";
+
+export async function GET(req: NextRequest) {
+  const searchParams = req.nextUrl.searchParams;
+  const message = searchParams.get("message") ?? "";
+  const sender = searchParams.get("sender") ?? "";
+  try {
+    await dbConnect();
+
+    const {username: to, text: content} = spliceNameAndText(message);
+    const res = await Message.create({to, content, sender});
+  } catch (error) {
+    console.log("error", error);
+  }
   return new ImageResponse(
     (
       <div
@@ -51,17 +67,7 @@ export async function GET() {
               alignItems: "center",
             }}
           >
-            Say thank you to whoever helped you!
-            <span>
-              like: Thanks for helping me with the UI{" "}
-              <span
-                style={{color: "green", marginLeft: "5px", marginRight: "5px"}}
-              >
-                @siddesh.eth/@farcasterId
-              </span>
-              ....
-            </span>
-            add a farcaster id or ens name of the person you want to thank
+            {message} has received our thanks! See you again!
           </div>
         </div>
       </div>
