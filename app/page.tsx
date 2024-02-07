@@ -1,7 +1,7 @@
 import {Metadata} from "next";
 
 const postUrl = `${process.env.NEXT_PUBLIC_HOST}/api/start`;
-console.log("postUrl", postUrl);
+
 export async function generateMetadata(): Promise<Metadata> {
   const imageUrl = `${process.env.NEXT_PUBLIC_HOST}/start.png`;
   return {
