@@ -54,7 +54,9 @@ export async function GET(req: NextRequest) {
             marginTop: "200px",
           }}
         >
-          <span style={{color: "#FFA500", marginRight: "5px"}}>{receiver}</span>
+          <span style={{color: "#FFA500", marginRight: "10px"}}>
+            {receiver}
+          </span>
           <span>has received your thank you note! See you again!</span>
         </div>
       </div>
