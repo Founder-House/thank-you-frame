@@ -36,11 +36,12 @@ export async function POST(req: NextRequest) {
           <meta name="fc:frame" content="vNext" />
           <meta name="fc:frame:post_url" content="${postUrl}" />
           <meta name="fc:frame:image" content="${imageUrl}" />
-          <meta name="fc:frame:button:1" content="See code" />
-          <meta name="fc:frame:button:1:action" content="post_redirect" />
-          <meta name="fc:frame:button:2" content="(coming soon)" />
+          <meta name="fc:frame:button:1" content="FH on X" />
+          <meta name="fc:frame:button:1:action" content="link" />
+          <meta name="fc:frame:button:1:target" content="https://twitter.com/founderhouse_" />
+          <meta name="fc:frame:button:2" content="Join FH TG Community" />
           <meta name="fc:frame:button:2:action" content="link" />
-          <meta name="fc:frame:button:2:target" content="https://github.com/horsefacts/echo-the-dolphin" />
+          <meta name="fc:frame:button:2:target" content="https://t.me/+ULHESQjzIbI2MjQ1" />
         </head>
         <body/>
       </html>`,

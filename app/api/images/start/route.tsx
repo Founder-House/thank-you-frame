@@ -28,13 +28,12 @@ export async function GET() {
             color: "black",
             overflow: "hidden",
             marginTop: 24,
-            width: "80vw", // Adjust width to account for padding
           }}
         >
           <div
             style={{
-              color: "beige", // A nice beige color for contrast
-              fontSize: 72, // Larger size for hero text
+              color: "#FFA500", // A nice beige color for contrast
+              fontSize: 90, // Larger size for hero text
               fontWeight: "bold", // Makes text bold
               marginBottom: 12,
             }}
@@ -43,19 +42,24 @@ export async function GET() {
           </div>
           <div
             style={{
-              fontSize: 24, // Smaller size for the following text
-              color: "white", // A nice blue color for contrast
+              fontSize: 42, // Smaller size for the following text
+              color: "#CCCCCC", // A nice blue color for contrast
               display: "flex", // Added to meet the requirement
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: 24,
             }}
           >
             Say thank you to whoever helped you!
             <span>
               like: Thanks for helping me with the UI{" "}
               <span
-                style={{color: "green", marginLeft: "5px", marginRight: "5px"}}
+                style={{
+                  color: "#FFA500",
+                  marginLeft: "5px",
+                  marginRight: "5px",
+                }}
               >
                 @siddesh.eth/@farcasterId
               </span>

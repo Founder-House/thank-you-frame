@@ -10,10 +10,12 @@ export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
   const message = searchParams.get("message") ?? "";
   const sender = searchParams.get("sender") ?? "";
+  let receiver;
   try {
     await dbConnect();
-
+    console.log(sender);
     const {username: to, text: content} = spliceNameAndText(message);
+    receiver = to;
     const res = await Message.create({to, content, sender});
   } catch (error) {
     console.log("error", error);
@@ -49,8 +51,8 @@ export async function GET(req: NextRequest) {
         >
           <div
             style={{
-              color: "beige", // A nice beige color for contrast
-              fontSize: 72, // Larger size for hero text
+              color: "#FFA500", // A nice beige color for contrast
+              fontSize: 90, // Larger size for hero text
               fontWeight: "bold", // Makes text bold
               marginBottom: 12,
             }}
@@ -59,15 +61,16 @@ export async function GET(req: NextRequest) {
           </div>
           <div
             style={{
-              fontSize: 24, // Smaller size for the following text
-              color: "white", // A nice blue color for contrast
+              fontSize: 42, // Smaller size for the following text
+              color: "#CCCCCC", // A nice blue color for contrast
               display: "flex", // Added to meet the requirement
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: 24,
             }}
           >
-            {message} has received our thanks! See you again!
+            {receiver} has received your thanks! See you again!
           </div>
         </div>
       </div>
