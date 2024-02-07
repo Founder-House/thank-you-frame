@@ -64,13 +64,22 @@ export async function GET(req: NextRequest) {
               fontSize: 42, // Smaller size for the following text
               color: "#CCCCCC", // A nice blue color for contrast
               display: "flex", // Added to meet the requirement
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
               marginTop: 24,
             }}
           >
-            {receiver} has received your thanks! See you again!
+            <span
+              style={{
+                color: "#FFA500",
+                marginLeft: "5px",
+                marginRight: "5px",
+              }}
+            >
+              {receiver}
+            </span>
+            has received your thanks! See you again!
           </div>
         </div>
       </div>
